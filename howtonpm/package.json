@@ -1,0 +1,16 @@
+{
+  "name": "@nmaddp1995/nmaddp1995",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "I am confused about you",
+  "repository": {
+    "url": "google.com.vn"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

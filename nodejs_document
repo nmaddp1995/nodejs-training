@@ -1,0 +1,112 @@
+1. global var process:
+    if you want to get data from console, process.argv[2] is the first argument that you type
+    process.argv[0] and [1] is some data about your nodejs folder
+
+2. Run function immediately
+    (function(){
+
+    })();
+
+3. Create a module and call it:
+    make a file: myModule.js 
+    module.exports = function(argv1,argv2,callback){
+        if(err) return callback(err); // if you call some function have err
+        else callback(data);
+    }
+    in main file:
+        var myModule = require('./myModule.js);
+
+4. HTTP Get Client
+    http.get(argv,function(response))
+    response is Node Stream Object, have 3 events: "data","err","end", handle event like this:
+        respone.on("data",function(data){
+        });
+
+    note: response.on('data') return the first data you get until end event call
+5. let, var:
+    let: variable local, just in that function
+6. Create TCP server:
+    net = require('net');
+    server = net.createServer(function(socket){
+        //socket handling login
+    })
+    server.listen(port);
+    socket.write(data);
+    socket.end();
+
+7. Create HTTP server
+    server = http.createServer(function(req,res){
+        //req: is used to fetch properties: header, query-string
+        //res: sending data to the client: headers and body
+        //request and response are also Node streams
+        //use src.pipe(dst) to pipe the data from the src stream to the dst stream
+        ex: fs.createReadStream(process.argv[3]).pipe(res)
+    })
+
+    You can use url module to get url Json: url.parse(req.url,true)
+
+    Send data to client: res.end(data);
+    for web client: res.writeHead(200, { 'Content-Type': 'application/json' });
+
+    Scope, scope chains, closure
+
+1. Scope:
+    function someFunc() {
+      var outerVar = 1;
+      function inner() {
+        var innerVar = 2;
+      }
+    }
+
+inner has access to both innerVar & outerVar, but someFunc onlyhas
+access to outerVar
+
+2. If you forget var or let, that variable will have global scope (window/global object)
+3. Shadowing: 
+    function someFunc() {
+       var foo = 1;
+       function inner() {
+          var foo = 2;
+       }
+    }
+
+    Normally, inner function can use variable in outer function(somFunc()), but in that case,
+    there is noway to access var foo of somFunc(). That's call shadowing
+
+
+    Stream-Adventure
+1. `split` will buffer chunks on newlines before you get them. With example
+2. `concat-stream` is a write stream that you can pass a callback to get the
+complete contents of a stream as a single buffer.
+3. pipe(): send stream data to dest
+4. 'request': 
+Here's an example of how to use the `request` module to send a GET request,
+piping the result to stdout:
+
+    var request = require('request');
+    request('http://beep.boop:80/').pipe(process.stdout);
+
+To make a POST request, just call `request.post()` instead of `request()`:
+
+    var request = require('request');
+    var r = request.post('http://beep.boop:80/');
+
+The `r` object that you get back from `request.post()` is a readable+writable
+stream so you can pipe a readable stream into it (`src.pipe(r)`) and you can
+pipe it to a writable stream (`r.pipe(dst)`).
+
+5. With `trumpet` you can create a transform stream from a css selector:
+
+    var trumpet = require('trumpet');
+    var fs = require('fs');
+    var tr = trumpet();
+    fs.createReadStream('input.html').pipe(tr);
+
+    var stream = tr.select('.beep').createStream();
+
+Now `stream` outputs all the inner html content at `'.beep'` and the data you
+write to `stream` will appear as the new inner html content.
+
+    Elementary Electron
+When you get Error: EACCES: permission denied, use this command:
+sudo npm install electron --unsafe-perm=true
