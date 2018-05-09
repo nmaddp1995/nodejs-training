@@ -110,3 +110,56 @@ write to `stream` will appear as the new inner html content.
     Elementary Electron
 When you get Error: EACCES: permission denied, use this command:
 sudo npm install electron --unsafe-perm=true
+
+
+
+    How-to-mark-down
+Markdown - is a lightweight, easy-to-read, easy-to-write plain text format
+for styling all forms of writing around the Internet. Markdown helps to
+control the display of the document: formatting words as bold or italic,
+adding images, creating lists and so on.
+
+how-to-markdown run file.md will serve a local server at
+     http://localhost:3000/ with a preview of file.md.
+
+1. Heading: 
+The number of # is a heading level. For example:
+     # Heading 1
+     ## Heading 2
+2. Paragraphs are separated by a blank line, so if you need to create two or
+ more paragraphs, you have to write something like this:
+
+    I am the first paragraph.
+
+    I am the second one.
+3.  Italics with *text* or _text_
+    Bold with **text** or __text__
+    combine with ** and _ **_text_**
+    strikethrough wrap the text in two tildes (~) like so:
+         ~~Scratch this line.~~
+4.  Insert an asterisk (*) or a dash
+    (-) before each item for an unordered list or a number with a dot for an
+    ordered one (e.g., 1., 2., 3.).
+    Add a tab, or spaces for nested elements such as: 
+    - element 1
+       - element 1.1
+       - element 1.2
+     
+5.  Links in Markdown have this format:
+
+     [text](href "alt"): [Google Homepage](https://www.google.com "Google Homepage")
+
+    Reference style: 
+        [NodeSchool Site][ref]
+        [GitHub][1]
+        [Remark parser]
+
+    Some text to show that the reference links can follow later:
+        [ref]: http://www.nodeschool.io
+        [1]: https://github.com/
+        [Remark parser]: http://remark.js.org/
+
+6. Make text in a code form:
+    ```js
+    const add = (a, b) => a + b;
+7. Use | to make table
