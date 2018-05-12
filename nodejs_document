@@ -163,3 +163,33 @@ The number of # is a heading level. For example:
     ```js
     const add = (a, b) => a + b;
 7. Use | to make table
+
+
+    Learn you html
+1. 
+   » <sup> - upper index
+   » <sub> - lower index
+2. In some cases you need to implement glossary or to display a list of
+  key-value pairs. There is <dl> tag for such needs. <dl> stands for
+  definitions list and is used to encloses a list of groups of terms and
+  descriptions.
+
+  Terms are enclosed in <dt> tag, which means definition term. Definitions
+  are wrapped in <dd> tags.
+3.  A <form> element has a lot of attributes, here are the most important of
+  them:
+
+   » action - the URI of a program that processes the form information.
+   » method - the HTTP method that the browser uses to submit the form.
+     Possible values are: post — corresponds to the HTTP POST method;get -
+     corresponds to the HTTP GET method.
+   » name - The name of the form. It must be unique among the forms in a
+     document.
+
+  Here is a more information about <form>'s attributes:
+  (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes
+  )
+
+  <input> — the element is used to create interactive controls for web-based forms in
+  order to accept data from the user. How an <input> works varies
+  considerably depending on the value of its type attribute.
