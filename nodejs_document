@@ -193,3 +193,41 @@ The number of # is a heading level. For example:
   <input> — the element is used to create interactive controls for web-based forms in
   order to accept data from the user. How an <input> works varies
   considerably depending on the value of its type attribute.
+
+
+
+    Functional Javascript
+1. Create a module 
+    module.exports = function(input) {
+      return input.toUpperCase()
+    }
+2. Map in js:
+    var array1 = [1, 4, 9, 16];
+    var map1 = array1.map(function double(x){
+    return x*2 ;
+});
+
+var new_array = arr.map(function callback(currentValue[, index[, array]]) {
+    // Return element for new_array
+    }[, thisArg])
+        Parameters
+    callback
+    Function that produces an element of the new Array, taking three arguments:
+ 
+    currentValue
+    The current element being processed in the array.
+    indexOptional
+    The index of the current element being processed in the array.
+    arrayOptional
+    The array map was called upon.
+    thisArgOptional
+    Value to use as this when executing callback.
+
+3. Filter in js
+//this function return any item in this array that meet the condition of this function
+var array=[1,2,3,4];
+array2 = array.filter(function(item){
+    return item < 3 ;
+}) 
+
+array2 = [1,2] 
