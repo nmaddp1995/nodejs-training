@@ -1,10 +1,16 @@
 function Spy(target,method){
-    var count = 0 ;
-    
+    var spy = {
+        count: 0
+    }
 
-    return {
-        count : count 
-    };
+    let oldMethod = target[method]
+    
+    target[method] = function () {
+        spy.count++;       
+        oldMethod.call(target, ...arguments);
+    }
+
+    return spy
 }
 
 module.exports = Spy;

@@ -1,8 +1,4 @@
-var spy = require('./spy.js');
+var logger = require('./partial-without-bind');
 
-spy = spy(console,'error');
-console.error('calling console.error');
-console.error('calling console.error');
-console.error('calling console.error');
-
-console.log(spy.count);
+var abv = logger("info: ");
+abv('hihui', 'haha');
