@@ -1,6 +1,9 @@
 var slice = Array.prototype.slice;
 
 function logger(namespace){
+
+    // return console.log.apply()
+    
     
     return function() {
         var args = slice.call(arguments);   
